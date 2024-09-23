@@ -1,0 +1,8 @@
+{
+    "User": true,
+    "School": true,
+    "Media": true,
+    "Sport": true,
+    "Subscription": true,
+    "Content": true
+}
