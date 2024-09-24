@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\School\Http\Controllers\SchoolController;
+use Modules\School\Http\Controllers\Grade\GradeController;
+use Modules\School\Http\Controllers\Classroom\ClassroomController;
 
 /*
  *--------------------------------------------------------------------------
@@ -14,6 +16,10 @@ use Modules\School\Http\Controllers\SchoolController;
  *
 */
 
-Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
-    Route::apiResource('school', SchoolController::class)->names('school');
-});
+// Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
+//     Route::apiResource('school', SchoolController::class)->names('school');
+// });
+
+Route::apiResource('grade', GradeController::class)->names('grade');
+Route::apiResource('classroom', ClassroomController::class)->names('classroom');
+
