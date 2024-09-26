@@ -2,6 +2,7 @@
 
 namespace Modules\User\Models\MyParents;
 
+use Modules\User\Models\Student;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,7 +20,6 @@ class MyParents extends Model
         'password',
         'first_name',
         'last_name',
-        'national_ID',
         'passport_ID',
         'phone',
         'job',
@@ -31,27 +31,21 @@ class MyParents extends Model
     ];
 
        // تشفير الحقول عند التخزين
-       public function setNationalIdAttribute($value)
-       {
-           $this->attributes['national_ID'] = Crypt::encryptString($value);
-       }
-
        public function setPassportIdAttribute($value)
        {
            $this->attributes['passport_ID'] = Crypt::encryptString($value);
        }
 
        // فك تشفير الحقول عند الاسترجاع
-       public function getNationalIdAttribute($value)
-       {
-           return Crypt::decryptString($value);
-       }
-
        public function getPassportIdAttribute($value)
        {
            return Crypt::decryptString($value);
        }
 
+       public function student()
+       {
+           return $this->hasOne(Student::class);
+       }
 
     protected function casts(): array
     {

@@ -22,8 +22,7 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
 
-            $table->string('national_ID')->unique();
-            $table->string('passport_ID')->nullable();
+            $table->string('passport_ID')->unique();
 
             $table->string('phone')->unique();
             $table->string('job')->nullable();

@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\School\Http\Requests\Teacher;
+namespace Modules\User\Http\Requests\Specialization;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TeacherRequest extends FormRequest
+class SpecializationRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
