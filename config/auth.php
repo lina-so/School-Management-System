@@ -1,5 +1,9 @@
 <?php
 
+use Modules\User\Models\Student\Student;
+use Modules\User\Models\Teacher\Teacher;
+use Modules\User\Models\MyParents\MyParents;
+
 return [
 
     /*
@@ -40,6 +44,21 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'api-student' => [
+            'driver' => 'token',
+            'provider' => 'students',
+        ],
+
+        'api-myParent' => [
+            'driver' => 'token',
+            'provider' => 'my_parents',
+        ],
+
+        'api-teacher' => [
+            'driver' => 'token',
+            'provider' => 'teachers',
+        ],
     ],
 
     /*
@@ -64,6 +83,24 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
+        'students' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', Student::class),
+
+        ],
+
+        'parents' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', MyParents::class),
+
+        ],
+
+        'teachers' => [
+            'driver' => 'eloquent',
+            'model' => env('AUTH_MODEL', Teacher::class),
+
+        ],
+
 
         // 'users' => [
         //     'driver' => 'database',
