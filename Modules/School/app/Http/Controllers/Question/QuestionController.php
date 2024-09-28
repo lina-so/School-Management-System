@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\School\Http\Controllers\Teacher;
+namespace Modules\School\Http\Controllers\Question;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class TeacherController extends Controller
+class QuestionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +26,7 @@ class TeacherController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(TeacherRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -50,7 +50,7 @@ class TeacherController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(TeacherRequest $request, $id)
+    public function update(Request $request, $id)
     {
         //
     }

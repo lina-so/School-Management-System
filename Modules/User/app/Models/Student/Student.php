@@ -49,6 +49,7 @@ class Student extends Model
         // Status
         'status',
     ];
+    protected $with = ['student_parent'];
 
     public function student_parent()
     {

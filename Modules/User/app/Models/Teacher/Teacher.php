@@ -46,6 +46,7 @@ class Teacher extends Model
         'grade_id',
         'specialization_id'
     ];
+    protected $with = ['subjects','sections','classrooms','grades'];
 
     public function subjects()
     {

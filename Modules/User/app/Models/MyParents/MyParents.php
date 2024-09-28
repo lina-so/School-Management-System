@@ -47,12 +47,12 @@ class MyParents extends Model
            return $this->hasOne(Student::class);
        }
 
-    protected function casts(): array
-    {
-        return [
-            'password' => 'hashed',
-        ];
-    }
+        protected function casts(): array
+        {
+            return [
+                'password' => 'hashed',
+            ];
+        }
 
     // protected static function newFactory(): MyParents/MyParentsFactory
     // {

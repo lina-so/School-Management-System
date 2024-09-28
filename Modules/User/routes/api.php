@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\User\Http\Controllers\UserController;
+use Modules\User\Http\Controllers\Student\StudentController;
+use Modules\User\Http\Controllers\Teacher\TeacherController;
+use Modules\User\Http\Controllers\MyParent\MyParentController;
 
 /*
  *--------------------------------------------------------------------------
@@ -14,6 +17,10 @@ use Modules\User\Http\Controllers\UserController;
  *
 */
 
-Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
-    Route::apiResource('user', UserController::class)->names('user');
-});
+// Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
+//     Route::apiResource('user', UserController::class)->names('user');
+// });
+
+Route::apiResource('my_parents', MyParentController::class)->names('my_parents');
+Route::apiResource('student', StudentController::class)->names('student');
+Route::apiResource('teacher', TeacherController::class)->names('teacher');
