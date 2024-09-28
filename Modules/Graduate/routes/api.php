@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\Graduate\Http\Controllers\GraduateController;
+use Modules\Graduate\Http\Controllers\Promotion\PromotionController;
 
 /*
  *--------------------------------------------------------------------------
@@ -14,6 +15,8 @@ use Modules\Graduate\Http\Controllers\GraduateController;
  *
 */
 
-Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
-    Route::apiResource('graduate', GraduateController::class)->names('graduate');
-});
+// Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
+//     Route::apiResource('graduate', GraduateController::class)->names('graduate');
+// });
+
+Route::apiResource('promotion',PromotionController::class)->names('promotion');

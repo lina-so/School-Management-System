@@ -3,6 +3,7 @@
 namespace Modules\School\Http\Requests\Section;
 
 use Illuminate\Validation\Rule;
+use App\Enums\Section\SectionStatus;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SectionRequest extends FormRequest
@@ -15,7 +16,7 @@ class SectionRequest extends FormRequest
         return [
             'name'=>['required','string','min:3','max:50',Rule::unique('sections','name')->ignore($this->id ?? null)],
             'capacity'=>['required','integer','min:1','max:30'],
-            'status'=>['required','in:active,inactive'],
+            'status'=>['required', new EnumValue(SectionStatus::class)],
             'classroom_id'=>['required','integer','exists:classrooms,id'],
             'grade_id'=>['required','integer','exists:grades,id'],
 

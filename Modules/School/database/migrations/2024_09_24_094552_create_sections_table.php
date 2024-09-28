@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\Section\SectionStatus;
 use Illuminate\Support\Facades\Schema;
 use Modules\School\Models\Grade\Grade;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,7 +18,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('capacity'); // number of students into the section
-            $table->enum('status',['active','inactive'])->default('active');
+
+            $table->enum('status', SectionStatus::getValues())
+                ->default(SectionStatus::active);
+
             $table->foreignIdFor(Classroom::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(Grade::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
 

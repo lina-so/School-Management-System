@@ -2,6 +2,8 @@
 
 namespace Modules\User\Http\Requests\Student;
 
+use App\Enums\Gender\GenderEnum;
+use App\Enums\Status\StatusEnum;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StudentRequest extends FormRequest
@@ -20,7 +22,7 @@ class StudentRequest extends FormRequest
             'first_name' => ['required', 'string', 'min:3','max:255'],
             'last_name' => ['required', 'string', 'min:3','max:255'],
             'middle_name' => ['nullable', 'string', 'min:3','max:255'],
-            'gender' => ['required', 'in:male,female'],
+            'gender' => ['required',  new EnumValue(GenderEnum::class)],
             'date_of_birth' => ['required', 'date', 'before:today'],
 
             // Foreign Keys (assuming they are valid existing references)
@@ -45,7 +47,7 @@ class StudentRequest extends FormRequest
             'section_id' => ['required', 'exists:sections,id'],
 
             // Status
-            'status' => ['required', 'in:active,graduated,suspended,transferred,withdrawn,inactive'],
+            'status' => ['required',  new EnumValue(StatusEnum::class)],
         ];
     }
 

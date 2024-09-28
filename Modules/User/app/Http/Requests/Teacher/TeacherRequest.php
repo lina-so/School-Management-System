@@ -2,7 +2,12 @@
 
 namespace Modules\User\Http\Requests\Teacher;
 
+use App\Enums\Gender\GenderEnum;
+use App\Enums\Status\StatusEnum;
+use App\Enums\JobTitle\JobTitleEnum;
 use Illuminate\Foundation\Http\FormRequest;
+use App\Enums\EducationLevel\EducationLevelEnum;
+use App\Enums\EmploymentType\EmploymentTypeEnum;
 
 class TeacherRequest extends FormRequest
 {
@@ -14,7 +19,7 @@ class TeacherRequest extends FormRequest
         return [
             'first_name' => ['required', 'string', 'min:3','max:255'],
             'last_name' => ['required', 'string', 'min:3','max:255'],
-            'gender' => ['required', 'in:male,female'],
+            'gender' => ['required',new EnumValue(GenderEnum::class)],
             'date_of_birth' => ['required', 'date'],
             'phone' => ['required', 'string', 'max:15','regex:/^([0-9\s\-\+\(\)]*)$/',Rule::unique('teachers','phone_number')->ignore($this->id ?? null)],
 
@@ -24,18 +29,15 @@ class TeacherRequest extends FormRequest
 
             'hire_date' => ['required', 'date'],
             'retired_date' => ['nullable', 'date', 'after_or_equal:hire_date'],
-            
-            'job_title' => ['required', 'in:teacher,Senior,Assistant'],
+
+            'job_title' => ['required' ,new EnumValue(JobTitleEnum::class)],
             'experience_years' => ['nullable', 'integer', 'min:0'],
             'salary' => ['nullable', 'numeric', 'min:0'],
 
-            'education_level' => ['required', 'in:High School Diploma,Associates Degree,
-                                Bachelors Degree,
-                                Masters Degree,Doctorate (PhD),Technical Diploma,
-                                Vocational Training,No Formal Education,Other'],
+            'education_level' => ['required', new EnumValue(EducationLevelEnum::class)],
 
-            'employment_type' => ['required', 'in:full-time,part-time,contract'],
-            'status' => ['required', 'in:active,on_leave,retired'],
+            'employment_type' => ['required', new EnumValue(EmploymentTypeEnum::class)],
+            'status' => ['required', new EnumValue(StatusEnum::class)],
             'blood_type_id' => ['required', 'exists:blood_types,id'],
             'nationality_id' => ['required', 'exists:nationalities,id'],
             'religion_id' => ['required', 'exists:religions,id'],

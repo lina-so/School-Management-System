@@ -1,14 +1,17 @@
 <?php
 
+use App\Enums\Gender\GenderEnum;
+use App\Enums\Status\StatusEnum;
 use Illuminate\Support\Facades\Schema;
 use Modules\School\Models\Grade\Grade;
-use Modules\User\Models\Specialization\Specialization;
 use Illuminate\Database\Schema\Blueprint;
 use Modules\User\Models\Religion\Religion;
 use Modules\User\Models\BloodType\BloodType;
 use Illuminate\Database\Migrations\Migration;
 use Modules\School\Models\Classroom\Classroom;
+use App\Enums\EmploymentType\EmploymentTypeEnum;
 use Modules\User\Models\Nationality\Nationality;
+use Modules\User\Models\Specialization\Specialization;
 
 return new class extends Migration
 {
@@ -21,7 +24,9 @@ return new class extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
-            $table->enum('gender', ['male', 'female']);
+
+            $table->enum('gender', GenderEnum::getValues());
+
             $table->date('date_of_birth');
             $table->string('phone_number');
 
@@ -32,24 +37,16 @@ return new class extends Migration
             $table->date('hire_date');
             $table->date('retired_date');
 
-            $table->enum('job_title',[ 'teacher', 'Senior', 'Assistant'])->default('teacher');
+            $table->enum('job_title', JobTitleEnum::getValues())->default(JobTitleEnum::Teacher);
 
             $table->integer('experience_years')->nullable();
             $table->decimal('salary', 8, 2)->nullable();
 
-            $table->enum('education_level',[
-            'High School Diploma',
-            'Associates Degree',
-            'Bachelors Degree',
-            'Masters Degree',
-            'Doctorate (PhD)',
-            'Technical Diploma',
-            'Vocational Training',
-            'No Formal Education',
-            'Other']);
+            $table->enum('education_level', EducationLevelEnum::getValues());
 
-            $table->enum('employment_type', ['full-time', 'part-time', 'contract']);
-            $table->enum('status', ['active', 'on_leave', 'retired'])->default('active');
+            $table->enum('employment_type', EmploymentTypeEnum::getValues());
+            $table->enum('status', StatusEnum::getValues())->default(StatusEnum::Active);
+
 
             $table->foreignIdFor(BloodType::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(Nationality::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();

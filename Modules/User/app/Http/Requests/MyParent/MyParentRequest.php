@@ -3,6 +3,7 @@
 namespace Modules\User\Http\Requests\MyParent;
 
 use Illuminate\Validation\Rule;
+use App\Enums\ParentType\ParentTypeEnum;
 use Illuminate\Foundation\Http\FormRequest;
 
 class MyParentRequest extends FormRequest
@@ -22,7 +23,7 @@ class MyParentRequest extends FormRequest
             'phone' => ['required', 'string', 'max:15','regex:/^([0-9\s\-\+\(\)]*)$/',Rule::unique('my_parents','phone')->ignore($this->id ?? null)],
             'job' => ['nullable', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:500'],
-            'type' => ['required', 'in:father,mother'],
+            'type' => ['required',new EnumValue(ParentTypeEnum::class)],
             'blood_type_id' => ['required', 'exists:blood_types,id',Rule::exists('blood_type','id')],
             'nationality_id' => ['required', Rule::exists('nationalities', 'id')],
             'religion_id' => ['required', Rule::exists('religions', 'id')],

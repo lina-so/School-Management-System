@@ -1,5 +1,7 @@
 <?php
 
+use App\Enums\Gender\GenderEnum;
+use App\Enums\Status\StatusEnum;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Modules\School\Models\Section\Section;
@@ -25,7 +27,8 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('middle_name')->nullable();
-            $table->enum('gender', ['male', 'female']);
+            $table->enum('gender', GenderEnum::getValues());
+
             $table->date('date_of_birth');
 
             $table->foreignIdFor(BloodType::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
@@ -48,8 +51,7 @@ return new class extends Migration
             $table->foreignIdFor(Section::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(MyParents::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
 
-
-            $table->enum('status', ['active', 'graduated', 'suspended', 'transferred', 'withdrawn', 'inactive'])->default('active');
+            $table->enum('status', StatusEnum::getValues())->default(StatusEnum::Active);
 
             $table->timestamps();
             $table->softDeletes();

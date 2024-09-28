@@ -1,8 +1,9 @@
 <?php
 
-use Modules\User\Models\Teacher\Teacher;
+use App\Enums\Section\SectionStatus;
 use Illuminate\Support\Facades\Schema;
 use Modules\School\Models\Grade\Grade;
+use Modules\User\Models\Teacher\Teacher;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Modules\School\Models\Classroom\Classroom;
@@ -20,7 +21,9 @@ return new class extends Migration
             $table->foreignIdFor(Grade::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(Classroom::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(Teacher::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->enum('status',['active','inactive'])->default('active');
+
+            $table->enum('status', SectionStatus::getValues())
+            ->default(SectionStatus::active);
 
 
 

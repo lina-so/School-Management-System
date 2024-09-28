@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Schema;
+use App\Enums\ParentType\ParentTypeEnum;
 use Illuminate\Database\Schema\Blueprint;
 use Modules\User\Models\Religion\Religion;
 use Modules\User\Models\BloodType\BloodType;
@@ -28,12 +29,11 @@ return new class extends Migration
             $table->string('job')->nullable();
             $table->string('address');
 
-            $table->enum('type',['father','mother'])->default('mother');
+            $table->enum('type', ParentTypeEnum::getValues());
 
             $table->foreignIdFor(BloodType::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(Nationality::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(Religion::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-
 
             $table->timestamps();
         });
