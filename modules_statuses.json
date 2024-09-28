@@ -4,5 +4,7 @@
     "Media": true,
     "Sport": true,
     "Subscription": true,
-    "Content": true
+    "Content": true,
+    "Graduate": true,
+    "Bookshop": true
 }
