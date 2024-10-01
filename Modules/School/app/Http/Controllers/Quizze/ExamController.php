@@ -11,6 +11,7 @@ use Modules\School\Http\Requests\Quizze\ExamRequest;
 
 class ExamController extends Controller
 {
+    // TODO::the exam is finished and the student doesn't answer all the questions
 
     public function startExam($examId)
     {
