@@ -3,8 +3,8 @@
 namespace Modules\User\Http\Requests\MyParent;
 
 use Illuminate\Validation\Rule;
-use App\Enums\ParentType\ParentTypeEnum;
 use Illuminate\Foundation\Http\FormRequest;
+use Modules\School\Enums\MyParent\ParentTypeEnum;
 
 class MyParentRequest extends FormRequest
 {

@@ -1,6 +1,7 @@
 <?php declare(strict_types=1);
 
-namespace App\Enums\JobTitle;
+namespace Modules\School\Enums\Teacher;
+
 
 use BenSampo\Enum\Enum;
 
@@ -15,3 +16,4 @@ final class JobTitleEnum extends Enum
     const Senior = 'Senior';
     const Assistant = 'Assistant';
 }
+

@@ -1,7 +1,8 @@
 <?php
 
-namespace Modules\School\Models;
+namespace Modules\School\Models\Quizze;
 
+use Modules\School\Models\Question\Question;
 use Modules\School\Models\Grade\Grade;
 use Illuminate\Database\Eloquent\Model;
 use Modules\User\Models\Teacher\Teacher;
@@ -51,6 +52,12 @@ class Quizze extends Model
     {
         return $this->belongsTo(Section::class);
     }
+
+    public function questions()
+    {
+        return $this->hasMany(Question::class);
+    }
+
 
     // protected static function newFactory(): Quizze/QuizzeFactory
     // {

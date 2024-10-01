@@ -1,11 +1,11 @@
 <?php
 
 use App\Enums\Gender\GenderEnum;
-use App\Enums\Status\StatusEnum;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Modules\School\Models\Section\Section;
 use Modules\User\Models\Religion\Religion;
+use Modules\School\Enums\Student\StatusEnum;
 use Modules\User\Models\BloodType\BloodType;
 use Modules\User\Models\MyParents\MyParents;
 use Illuminate\Database\Migrations\Migration;

@@ -26,6 +26,9 @@ return new class extends Migration
             $table->foreignIdFor(Teacher::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(Subject::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
 
+            $table->date('start_date');
+            $table->integer('duration')->comment('minutes');
+
 
             $table->timestamps();
         });

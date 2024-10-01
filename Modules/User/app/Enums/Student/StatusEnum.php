@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Enums\Status;
+namespace Modules\School\Enums\Student;
 
 use BenSampo\Enum\Enum;
 
@@ -11,15 +11,13 @@ use BenSampo\Enum\Enum;
  */
 final class StatusEnum extends Enum
 {
-    const active = 'active';
-    const inactive = 'inactive';
-
-    const OnLeave = 'on_leave';
-    const Retired = 'retired';
+    const Active = 'active';
+    const Inactive = 'inactive';
 
     const Graduated = 'graduated';
     const Suspended = 'suspended';
     const Transferred = 'transferred';
     const Withdrawn = 'withdrawn';
+
 }
 

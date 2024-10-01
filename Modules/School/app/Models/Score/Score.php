@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\School\Models\Exam;
+namespace Modules\School\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-// use Modules\School\Database\Factories\Exam/ExamFactory;
+// use Modules\School\Database\Factories\Score/ScoreFactory;
 
-class Exam extends Model
+class Score extends Model
 {
     use HasFactory;
 
@@ -15,8 +15,8 @@ class Exam extends Model
      */
     protected $fillable = [];
 
-    // protected static function newFactory(): Exam/ExamFactory
+    // protected static function newFactory(): Score/ScoreFactory
     // {
-    //     // return Exam/ExamFactory::new();
+    //     // return Score/ScoreFactory::new();
     // }
 }

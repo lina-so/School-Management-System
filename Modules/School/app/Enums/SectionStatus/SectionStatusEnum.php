@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Enums\ParentType;
+namespace Modules\School\Enums\SectionStatus;
 
 use BenSampo\Enum\Enum;
 
@@ -9,8 +9,9 @@ use BenSampo\Enum\Enum;
  * @method static static OptionTwo()
  * @method static static OptionThree()
  */
-final class ParentTypeEnum extends Enum
+final class SectionStatusEnum extends Enum
 {
-    const Mother = 'mother';
-    const Father = 'father';
+    const Active = 'active';
+    const Inactive = 'inactive';
 }
+

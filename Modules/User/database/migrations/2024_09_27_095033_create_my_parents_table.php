@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Schema;
-use App\Enums\ParentType\ParentTypeEnum;
 use Illuminate\Database\Schema\Blueprint;
 use Modules\User\Models\Religion\Religion;
 use Modules\User\Models\BloodType\BloodType;
 use Illuminate\Database\Migrations\Migration;
 use Modules\User\Models\Nationality\Nationality;
+use Modules\School\Enums\MyParent\ParentTypeEnum;
 
 return new class extends Migration
 {

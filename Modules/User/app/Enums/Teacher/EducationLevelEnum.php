@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Enums\EducationLevel;
+namespace Modules\School\Enums\Teacher;
 
 use BenSampo\Enum\Enum;
 
@@ -21,3 +21,4 @@ final class EducationLevelEnum extends Enum
     const NoFormalEducation = 'No Formal Education';
     const Other = 'Other';
 }
+

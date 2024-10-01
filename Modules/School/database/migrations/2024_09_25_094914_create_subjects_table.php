@@ -7,6 +7,7 @@ use Modules\User\Models\Teacher\Teacher;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Modules\School\Models\Classroom\Classroom;
+use Modules\School\Enums\SectionStatus\SectionStatusEnum;
 
 return new class extends Migration
 {
@@ -22,8 +23,8 @@ return new class extends Migration
             $table->foreignIdFor(Classroom::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(Teacher::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
 
-            $table->enum('status', SectionStatus::getValues())
-            ->default(SectionStatus::active);
+            $table->enum('status', SectionStatusEnum::getValues())
+            ->default(SectionStatusEnum::Active);
 
 
 

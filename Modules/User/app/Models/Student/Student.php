@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\User\Models;
+namespace Modules\User\Models\Student;
 
 use Illuminate\Database\Eloquent\Model;
 use Modules\User\Models\MyParents\MyParents;

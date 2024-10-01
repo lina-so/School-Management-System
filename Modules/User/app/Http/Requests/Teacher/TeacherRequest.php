@@ -3,11 +3,11 @@
 namespace Modules\User\Http\Requests\Teacher;
 
 use App\Enums\Gender\GenderEnum;
-use App\Enums\Status\StatusEnum;
-use App\Enums\JobTitle\JobTitleEnum;
 use Illuminate\Foundation\Http\FormRequest;
-use App\Enums\EducationLevel\EducationLevelEnum;
-use App\Enums\EmploymentType\EmploymentTypeEnum;
+use Modules\School\Enums\Teacher\StatusEnum;
+use Modules\School\Enums\Teacher\JobTitleEnum;
+use Modules\School\Enums\Teacher\EducationLevelEnum;
+use Modules\School\Enums\Teacher\EmploymentTypeEnum;
 
 class TeacherRequest extends FormRequest
 {

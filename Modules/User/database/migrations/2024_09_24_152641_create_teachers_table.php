@@ -1,16 +1,18 @@
 <?php
 
 use App\Enums\Gender\GenderEnum;
-use App\Enums\Status\StatusEnum;
 use Illuminate\Support\Facades\Schema;
 use Modules\School\Models\Grade\Grade;
 use Illuminate\Database\Schema\Blueprint;
 use Modules\User\Models\Religion\Religion;
+use Modules\School\Enums\teacher\StatusEnum;
 use Modules\User\Models\BloodType\BloodType;
 use Illuminate\Database\Migrations\Migration;
+use Modules\School\Enums\teacher\JobTitleEnum;
 use Modules\School\Models\Classroom\Classroom;
-use App\Enums\EmploymentType\EmploymentTypeEnum;
 use Modules\User\Models\Nationality\Nationality;
+use Modules\School\Enums\teacher\EducationLevelEnum;
+use Modules\School\Enums\teacher\EmploymentTypeEnum;
 use Modules\User\Models\Specialization\Specialization;
 
 return new class extends Migration
@@ -45,6 +47,7 @@ return new class extends Migration
             $table->enum('education_level', EducationLevelEnum::getValues());
 
             $table->enum('employment_type', EmploymentTypeEnum::getValues());
+
             $table->enum('status', StatusEnum::getValues())->default(StatusEnum::Active);
 
 

@@ -3,8 +3,8 @@
 namespace Modules\User\Http\Requests\Student;
 
 use App\Enums\Gender\GenderEnum;
-use App\Enums\Status\StatusEnum;
 use Illuminate\Foundation\Http\FormRequest;
+use Modules\School\Enums\Student\StatusEnum;
 
 class StudentRequest extends FormRequest
 {

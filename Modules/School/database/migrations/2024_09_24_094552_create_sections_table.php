@@ -1,11 +1,11 @@
 <?php
 
-use App\Enums\Section\SectionStatus;
 use Illuminate\Support\Facades\Schema;
 use Modules\School\Models\Grade\Grade;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use Modules\School\Models\Classroom\Classroom;
+use Modules\School\Enums\SectionStatus\SectionStatusEnum;
 
 return new class extends Migration
 {
@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('name');
             $table->integer('capacity'); // number of students into the section
 
-            $table->enum('status', SectionStatus::getValues())
-                ->default(SectionStatus::active);
+            $table->enum('status', SectionStatusEnum::getValues())
+                ->default(SectionStatusEnum::Active);
 
             $table->foreignIdFor(Classroom::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(Grade::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();

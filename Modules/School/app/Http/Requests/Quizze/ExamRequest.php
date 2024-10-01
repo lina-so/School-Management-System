@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\School\Http\Requests\Exam;
+namespace Modules\School\Http\Requests\Quizze;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -12,7 +12,9 @@ class ExamRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'answers' => 'required|array',
+            'answers.*.question_id' => 'required|exists:questions,id',
+            'answers.*.answer' => 'required|string', 
         ];
     }
 

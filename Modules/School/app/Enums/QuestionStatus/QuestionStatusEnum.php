@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\Enums\EmploymentType;
+namespace Modules\School\Enums\QuestionStatus;
 
 use BenSampo\Enum\Enum;
 
@@ -9,9 +9,9 @@ use BenSampo\Enum\Enum;
  * @method static static OptionTwo()
  * @method static static OptionThree()
  */
-final class EmploymentTypeEnum extends Enum
+final class QuestionStatusEnum extends Enum
 {
-    const FullTime = 'full-time';
-    const PartTime = 'part-time';
-    const Contract = 'contract';
+    const MultipleChoice = 'multiple_choice';
+    const TrueFalse = 'true_false';
 }
+
