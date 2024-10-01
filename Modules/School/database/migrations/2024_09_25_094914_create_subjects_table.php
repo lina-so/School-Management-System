@@ -26,8 +26,6 @@ return new class extends Migration
             $table->enum('status', SectionStatusEnum::getValues())
             ->default(SectionStatusEnum::Active);
 
-
-
             $table->timestamps();
         });
     }

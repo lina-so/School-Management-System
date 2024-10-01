@@ -26,8 +26,23 @@ class SubjectController extends Controller
      */
     public function store(SubjectRequest $request)
     {
-        $subject = Subject::create($request->validated());
-        return response()->json(['success'=>'subject stored successfully'],201);
+        DB::beginTransaction();
+
+        try {
+            $data = $request->validated();
+            $subject = Subject::create($data);
+
+            if ($request->hasFile('file')) {
+                $course->addMediaFromRequest('file')->toMediaCollection('files');
+            }
+
+            DB::commit();
+            return response()->json(['success'=>'subject stored successfully'],201);
+
+        } catch (Exception $e) {
+            DB::rollback();
+            return $e;
+        }
     }
 
     /**
@@ -44,8 +59,28 @@ class SubjectController extends Controller
      */
     public function update(SubjectRequest $request, Subject $subject)
     {
-        $subject->update($request->validated());
-        return response()->json(['success'=>'subject updated successfully'],201);
+        DB::beginTransaction();
+
+        try {
+
+            $data =$request->all();
+
+            $subject->update($data);
+
+            if ($request->hasFile('file')) {
+                if ($course->hasMedia('file')) {
+                    $course->clearMediaCollection('files');
+                }
+
+                $course->addMediaFromRequest('file')->toMediaCollection('files');
+            }
+
+            DB::commit();
+            return response()->json(['success'=>'subject updated successfully'],201);
+        } catch (\Exception $e) {
+            DB::rollback();
+            return $e;
+        }
     }
 
     /**

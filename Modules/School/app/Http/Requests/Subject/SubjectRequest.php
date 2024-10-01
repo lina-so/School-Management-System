@@ -19,6 +19,7 @@ class SubjectRequest extends FormRequest
             'grade_id'=>['required','integer','exists:grades,id'],
             'classroom_id'=>['required','integer','exists:classrooms,id'],
             'teacher_id'=>['required','integer','exists:teachers,id'],
+            'file' => 'required|file|mimes:pdf,doc,docx,jpg,png|max:2048',
 
         ];
     }
