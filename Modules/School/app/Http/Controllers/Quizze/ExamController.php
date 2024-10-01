@@ -32,7 +32,6 @@ class ExamController extends Controller
     }
 
 
-
     public function submitAnswers(ExamRequest $request, $examId)
     {
         $exam = Exam::find($examId);
